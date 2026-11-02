@@ -9,7 +9,7 @@
   const isAr = s => /[؀-ۿ]/.test(s);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const EMAIL = /[^\s@<>()]+@[^\s@<>()]+\.[a-z]{2,}/i;
-  const FIELDS = ["name", "email", "phone", "company", "role", "interest", "timeline", "budget", "location", "meeting"];
+  const FIELDS = ["name", "email", "phone", "company", "role", "interest", "timeline", "budget", "location", "meeting", "notes"];
 
   const st = { lang: "en", intent: "exploring", mode: "voice", phase: "closed", conv: null, live: false, lead: {},
     log: [], convId: "", started: 0, timer: 0, raf: 0, muted: false, submitted: false, pending: null, booked: "" };
@@ -132,7 +132,7 @@
   /* ---------- notes (update_lead) ---------- */
   function note(fields) {
     let changed = false;
-    for (const k of FIELDS.concat(["visitor_type", "notes"])) {
+    for (const k of FIELDS.concat(["visitor_type"])) {
       const v = fields?.[k];
       if (v != null && String(v).trim() && st.lead[k] !== String(v).trim()) { st.lead[k] = String(v).trim().slice(0, 400); changed = true; }
     }
@@ -267,19 +267,45 @@
     const s = " " + q.toLowerCase().replace(/[؟?!.,]/g, " ") + " ";
     let best = null, score = 0;
     for (const item of S.kb) { let n = 0; for (const k of item.k) if (s.includes(k)) n += k.length > 4 ? 2 : 1; if (n > score) { score = n; best = item; } }
-    return score >= 2 || (best && score >= 1 && q.includes("?")) ? best : null;
+    return score >= 2 || (best && score >= 1 && /[?؟]/.test(q)) ? best : null;
+  }
+  // Questions start with a question word or end with "?"; short yes/no replies answer the call offer.
+  const QWORD = /^(what|whats|what's|how|can|could|does|do|is|are|did|has|have|will|would|which|who|where|when|why|tell me|show me|any|hes|he's|he is)\b|^(هل|ممكن|إيه|ايه|ازاي|إزاي|ليه|فين|امتى|إمتى|مين|بيعرف|يقدر|عنده|عندكم|اشتغل|بتعمل)/i;
+  const YES = /^(yes|yeah|yep|yup|sure|ok|okay|please|sounds good|great|perfect|definitely|let'?s|أيوه|ايوه|اه|آه|تمام|ماشي|أكيد|اكيد|ياريت|يلا|طبعا|طبعًا|موافق)/i;
+  const NO = /^(no|nope|nah|not now|not really|maybe later|later|that'?s all|nothing|i'?m good|all good|لا|لأ|مش دلوقتي|خلاص|بعدين|مفيش|كده تمام)/i;
+  const BYE = /^(thanks|thank you|thx|bye|goodbye|شكرا|شكرًا|متشكر|مع السلامة|باي)/i;
+  // A name is 1–4 words of letters only, with no question words or greetings left over.
+  function asName(text) {
+    const n = text.trim().replace(/^(hi|hello|hey)[,!\s]+/i, "").replace(/^(i'?m|i am|my name is|this is|it'?s|call me|أنا|انا|اسمي)\s+/i, "")
+      .replace(/[.,!]+$/, "").replace(/\s+(here|from .*|at .*|من .*)$/i, "").trim();
+    const words = n.split(/\s+/);
+    const NOT_NAME = /\b(is|are|was|were|be|am|the|a|an|and|or|but|so|very|really|cool|nice|good|great|awesome|amazing|interesting|thanks|thank|ok|okay|yes|no|he|she|it|they|you|we|i|me|my|his|her|your|our|this|that|not|just|want|need|looking|hiring|project|app|work|job|role)\b|(^| )(هو|هي|انت|إنت|انا عايز|عايز|محتاج|كويس|جميل|حلو|شكرا|شكرًا|تمام|مش|بس|ده|دي)( |$)/iu;
+    return words.length <= 4 && /^[\p{L}][\p{L}'’\- ]*$/u.test(n) && !QWORD.test(n) && !NOT_NAME.test(n) ? n : "";
   }
   function offlineReply(text) {
-    const o = L().o, lang = isAr(text) ? "ar" : st.lang;
+    const o = L().o, lang = isAr(text) ? "ar" : st.lang, t0 = text.trim();
     st.turns = (st.turns || 0) + 1;
-    const email = text.match(EMAIL)?.[0];
+    const email = t0.match(EMAIL)?.[0];
     if (email) note({ email });
-    const question = /[?؟]/.test(text), kb = matchKB(text), reply = [];
-    if (kb && (question || st.pending === "chat" || st.pending === "done")) reply.push(o.cvSays + "\n" + kb[lang]);
-    else if (st.pending === "interest") { note({ interest: text, visitor_type: st.intent === "hiring" ? "recruiter" : "client" }); reply.push(o.noted); }
-    else if (st.pending === "name" && !email) note({ name: text.replace(/^(hi|hello|hey)[,!\s]+/i, "").replace(/^(i'?m|i am|my name is|this is|it'?s|أنا|انا|اسمي)\s+/i, "").split(/\s+/).slice(0, 4).join(" ").replace(/[.,!]+$/, "") });
-    else if (st.pending === "email" && !email) { say("ai", o.badEmail); return; }
-    else if (st.pending === "company") note({ company: text.slice(0, 120) });
+    const question = /[?؟]/.test(t0) || QWORD.test(t0), kb = matchKB(t0), reply = [];
+    const yes = YES.test(t0) && t0.length < 40, no = NO.test(t0) && t0.length < 40, bye = BYE.test(t0) && t0.length < 40;
+
+    if (st.pending === "offer" && (yes || no)) {
+      st.pending = "done";
+      if (yes) { showBooking(); reply.push(CFG.calLink ? o.bookPick : o.bookEmail.replace("{email}", st.lead.email || "")); }
+      else reply.push(o.wrap);
+      return respond(reply);
+    }
+    if ((st.pending === "done" || st.pending === "chat") && (no || bye)) return respond([o.wrap]);
+    if (question) {
+      if (kb) reply.push(o.cvSays + "\n" + kb[lang]);
+      else { note({ notes: [st.lead.notes, t0].filter(Boolean).join(" · ") }); reply.push(o.unknownQ); }
+    } else if (kb && (st.pending === "chat" || st.pending === "done")) reply.push(o.cvSays + "\n" + kb[lang]);
+    else if (st.pending === "interest") { note({ interest: t0, visitor_type: st.intent === "hiring" ? "recruiter" : "client" }); reply.push(o.noted); }
+    else if (st.pending === "name" && !email) { const n = asName(t0); if (!n) return respond([o.notName]); note({ name: n }); }
+    else if (st.pending === "email" && !email) return respond([o.badEmail]);
+    else if (st.pending === "company") note({ company: t0.slice(0, 120) });
+
     // what to ask next
     let next = "";
     if (st.intent !== "exploring" && !st.lead.interest) { st.pending = "interest"; next = st.intent === "hiring" ? o.askRole : o.askProject; }
@@ -287,11 +313,17 @@
     else if (!st.lead.name) { st.pending = "name"; next = o.askName; }
     else if (!st.lead.email) { st.pending = "email"; next = o.askEmail.replace("{name}", st.lead.name.split(" ")[0]); }
     else if (!st.lead.company && st.intent !== "exploring") { st.pending = "company"; next = o.askCompany; }
-    else if (st.pending !== "done") { st.pending = "done"; next = o.ready; showBooking(); }
-    if (next && !(reply.length && next === o.noted)) reply.push(next);
-    if (!reply.length) reply.push(o.anything);
+    else if (st.pending !== "done" && st.pending !== "offer") { st.pending = "offer"; next = o.ready; }
+    else if (st.pending === "offer") next = o.ready;
+    if (next) reply.push(next);
+    if (!reply.length) reply.push(st.lastAi === o.anything ? o.wrap : o.anything);
+    respond(reply);
+  }
+  function respond(parts) {
+    const msg = parts.join("\n\n");
+    st.lastAi = parts[parts.length - 1];
     setStatus("thinking");
-    setTimeout(() => { say("ai", reply.join("\n\n")); setStatus("offline"); }, reduced ? 0 : 500 + Math.random() * 400);
+    setTimeout(() => { say("ai", msg); setStatus("offline"); }, reduced ? 0 : 500 + Math.random() * 400);
   }
   function userSays(text) {
     if (st.conv && st.live) { say("user", text); st.conv.sendUserMessage(text); return; }
