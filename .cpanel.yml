@@ -5,6 +5,10 @@ deployment:
   tasks:
     - export DEPLOYPATH=$HOME/tahoun.wheretospot.com/
     - /bin/mkdir -p $DEPLOYPATH/assets
-    - /bin/cp index.html styles.css app.js content.js llms.txt robots.txt sitemap.xml $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/api $HOME/tahoun-private
+    - /bin/chmod 700 $HOME/tahoun-private
+    - /bin/cp index.html privacy.html styles.css app.js agent.js content.js llms.txt robots.txt sitemap.xml $DEPLOYPATH
+    - /bin/cp api/_lib.php api/agent-token.php api/lead.php api/config.example.php $DEPLOYPATH/api/
+    - /bin/cp api/.htaccess $DEPLOYPATH/api/.htaccess
     - /bin/cp .htaccess $DEPLOYPATH/.htaccess
     - /bin/cp -R assets/. $DEPLOYPATH/assets/

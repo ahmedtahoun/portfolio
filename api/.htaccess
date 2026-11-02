@@ -1,0 +1,5 @@
+# Only the two endpoints are reachable; helpers and the example config are not.
+Options -Indexes
+<FilesMatch "^(_lib|config\.example)\.php$">
+  Require all denied
+</FilesMatch>

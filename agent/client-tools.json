@@ -1,0 +1,37 @@
+[
+  {
+    "type": "client",
+    "name": "update_lead",
+    "description": "Save details the visitor just shared so Ahmed can follow up. Call it every time you learn something new. Send only the fields you just learned.",
+    "expects_response": true,
+    "parameters": {
+      "name": { "type": "string", "required": false, "description": "Visitor's full name." },
+      "email": { "type": "string", "required": false, "description": "Visitor's email address, exactly as they spelled it." },
+      "phone": { "type": "string", "required": false, "description": "Phone number, only if the visitor offers it." },
+      "company": { "type": "string", "required": false, "description": "Company or team." },
+      "role": { "type": "string", "required": false, "description": "The visitor's own job title." },
+      "visitor_type": { "type": "string", "required": false, "description": "One of: recruiter, client, other." },
+      "interest": { "type": "string", "required": false, "description": "What they want from Ahmed, in one sentence: the role they are hiring for, or the project they need built." },
+      "timeline": { "type": "string", "required": false, "description": "When they need someone or want to start." },
+      "budget": { "type": "string", "required": false, "description": "Budget or salary range, only if they mention it." },
+      "location": { "type": "string", "required": false, "description": "Where the role or client is based, or remote." },
+      "notes": { "type": "string", "required": false, "description": "Anything else useful for Ahmed, including questions you could not answer." }
+    }
+  },
+  {
+    "type": "client",
+    "name": "show_booking",
+    "description": "Open Ahmed's calendar next to the chat so the visitor can book a call. Use it after you have their name and email and they want to talk to Ahmed.",
+    "expects_response": true,
+    "parameters": {}
+  },
+  {
+    "type": "client",
+    "name": "show_project",
+    "description": "Show the visitor a card for one of Ahmed's projects while you talk about it.",
+    "expects_response": true,
+    "parameters": {
+      "project": { "type": "string", "required": true, "description": "One of: kipo, wheretospot, onething, rafiq, medilink, grevo, kitchentrace, wafa." }
+    }
+  }
+]

@@ -320,6 +320,7 @@
   const go = id => () => document.getElementById(id).scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
   function commands() {
     return [
+      ["🎙️", t("cmd.talk"), t("cmd.act"), () => window.TalkToAI?.open()],
       ["🤖", t("ai.h2"), t("cmd.go"), go("ai")], ["🧾", "Kipo", t("cmd.go"), go("kipo")], ["🗂️", t("work.h2"), t("cmd.go"), go("work")],
       ["🧭", t("j.h2"), t("cmd.go"), go("journey")], ["✉️", t("c.h2"), t("cmd.go"), go("contact")],
       ["🌓", t("cmd.theme"), t("cmd.act"), () => $("#themeBtn").click()], ["🌐", t("cmd.lang"), t("cmd.act"), () => $("#langBtn").click()],
@@ -391,7 +392,7 @@
         <div class="tags">${w.tags.map(x => `<span class="${w.ai.includes(x) ? "ai" : ""}">${esc(x)}</span>`).join("")}</div>
         <div class="card-links">${link}</div>
       </article>`;
-    }).join("") + (filter === "all" ? `<a class="card next" href="#contact"><span class="next-ico">＋</span><h3>${esc(t("next.h"))}</h3><p class="tldr">${esc(t("next.p"))}</p><span class="next-cta">${esc(t("next.cta"))}</span></a>` : "");
+    }).join("") + (filter === "all" ? `<a class="card next" href="#contact" data-agent="client"><span class="next-ico">＋</span><h3>${esc(t("next.h"))}</h3><p class="tldr">${esc(t("next.p"))}</p><span class="next-cta">${esc(t("next.cta"))}</span></a>` : "");
     $$(".card").forEach(card => card.addEventListener("pointermove", e => {
       const r = card.getBoundingClientRect();
       card.style.setProperty("--mx", e.clientX - r.left + "px");
@@ -469,6 +470,10 @@
     if (scrollY < 200) cur = "top";
     dockLinks.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur));
   }
+  const fl = $("#agFloat");
+  const floatCheck = () => fl?.classList.toggle("show", scrollY > innerHeight * 0.9);
+  addEventListener("scroll", floatCheck, { passive: true });
+  addEventListener("load", floatCheck);
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 

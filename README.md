@@ -8,11 +8,12 @@ What's interactive:
 - **Ask my AI**: answers questions about Ahmed from `content.js`, in the visitor's browser, with no API calls.
 - **AI sales-bot demo**: replays the production flow of the Where to Spot WhatsApp assistant (redaction, shop facts, Claude, JSON check, reply or human handover, cost cap).
 - **Kipo demo**: a Telegram-style chat with an on-device expense parser that fills a mock Google Sheet.
+- **Talk to my AI**: a voice / text assistant (ElevenLabs agent) that answers questions, takes notes for Ahmed and books a call. Falls back to an on-device text assistant until it's configured. Setup: [agent/SETUP.md](agent/SETUP.md).
 - **⌘K command palette**, light / dark theme, and `?lang=ar` / `?theme=dark` URL options.
 
 ## Run locally
 ```bash
-python3 -m http.server 4321
+php -S 127.0.0.1:4321
 ```
 
 ## Deploy (cPanel)
