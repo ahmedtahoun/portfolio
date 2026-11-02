@@ -1,0 +1,28 @@
+# Ahmed Tahoun
+
+> Full-stack & AI product engineer based in Egypt, open to relocation and remote roles. Builds AI-powered web apps, iOS/Android apps, CRMs and sales bots end to end. 10 years in tech across IT support, web development and growth marketing. Arabic (native) and English (fluent).
+
+## Contact
+- Email: ahmed.tahoun.at@gmail.com
+- LinkedIn: https://linkedin.com/in/ah-ta
+- GitHub: https://github.com/ahmedtahoun
+- Website: https://tahoun.wheretospot.com/
+- CV: https://tahoun.wheretospot.com/assets/Ahmed_Tahoun_CV.pdf
+
+## AI in production
+- Kipo (https://heykipo.com): AI expense tracker inside Telegram. Text, voice notes and receipt photos are read by Gemini in any language and currency and fill the user's own Google Sheet. Voice summaries in Egyptian and Gulf Arabic, paid plans via Paymob and Polar.
+- Where to Spot AI sales assistant: Claude answers WhatsApp, Instagram and Messenger customers in their own language from live shop data, strips phone numbers and emails before every call, hands complex chats to a human and pauses at a monthly cost cap. Code: https://github.com/ahmedtahoun/shopwheretospot
+- The One Thing: bilingual EN/AR productivity app with an on-device-first assistant that calls Claude through Supabase Edge Functions only when needed. Code: https://github.com/ahmedtahoun/one-thing
+
+## Other work
+- Rafiq Pro: coaching marketplace app (React 19, Capacitor, Supabase, live video, payouts, Playwright CI). Code: https://github.com/ahmedtahoun/rafiq-app
+- Medilink360 CRM (May – Oct 2026): clinic rollout CRM live in the UAE, Egypt, KSA and Qatar. React, TypeScript, Supabase with row-level security.
+- Grevo (2025 – 2026): NFC smart business cards with store, admin dashboard and iOS/Android app; 12,000+ profiles shared in 60+ countries.
+- KitchenTrace: kitchen food-safety (HACCP) compliance app with 5 roles and multi-location dashboards.
+- Teleperformance, Dubai RTA project (2021 – 2023): IT Solutions Specialist, L1/L2 support for all RTA customer service centers across the UAE.
+
+## Stack
+React, TypeScript, Vite, React Native, Expo, Capacitor, Supabase (Postgres, RLS, Edge Functions), PHP, Python, Claude, Claude Code, MCP, Gemini, Playwright, GitHub Actions, Sentry, Paymob, RevenueCat, WhatsApp API, Shopify, Odoo.
+
+## Education
+BSc Computer Science (Cyber Security), Akhbar El Yom Academy, 2020. Anthropic certifications: Claude 101, Claude Code 101, Agent Skills.

@@ -1,0 +1,10 @@
+# cPanel Git(TM) Version Control: copies the site into the subdomain's folder on "Deploy HEAD Commit".
+# DEPLOYPATH is the document root of tahoun.wheretospot.com. Check it in cPanel -> Domains and change it here if it differs.
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/tahoun.wheretospot.com/
+    - /bin/mkdir -p $DEPLOYPATH/assets
+    - /bin/cp index.html styles.css app.js content.js llms.txt robots.txt sitemap.xml $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH/.htaccess
+    - /bin/cp -R assets/. $DEPLOYPATH/assets/

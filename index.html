@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Tahoun · Full-Stack & AI Product Engineer</title>
+<meta name="description" content="Ahmed Tahoun builds AI-powered apps, CRMs and sales bots that ship. Full-stack and AI product engineer: React, TypeScript, React Native, Supabase, Claude.">
+<meta property="og:title" content="Ahmed Tahoun · Full-Stack & AI Product Engineer">
+<meta property="og:description" content="I build AI-powered apps, CRMs and sales bots that ship, from first commit to paying customers.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://tahoun.wheretospot.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://tahoun.wheretospot.com/">
+<meta property="og:site_name" content="Ahmed Tahoun">
+<link rel="canonical" href="https://tahoun.wheretospot.com/">
+<link rel="alternate" type="text/plain" href="https://tahoun.wheretospot.com/llms.txt" title="llms.txt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0F181E">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23E8781E'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='800' font-size='28' fill='%2313222B'>AT</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Ahmed Tahoun","url":"https://tahoun.wheretospot.com/","image":"https://tahoun.wheretospot.com/assets/og.png","jobTitle":"Full-Stack & AI Product Engineer","email":"mailto:ahmed.tahoun.at@gmail.com","address":{"@type":"PostalAddress","addressCountry":"EG"},"sameAs":["https://github.com/ahmedtahoun","https://linkedin.com/in/ah-ta","https://heykipo.com"],"knowsAbout":["React","TypeScript","React Native","Supabase","Claude","AI agents","CRM development"],"knowsLanguage":["ar","en"]}
+</script>
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Ahmed Tahoun, home"><span class="mark">AT</span><span class="brand-name" data-i18n="name">Ahmed Tahoun</span></a>
+  <nav class="links" aria-label="Sections">
+    <a href="#ai" data-i18n="nav.ai">AI</a>
+    <a href="#kipo">Kipo</a>
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#journey" data-i18n="nav.journey">Journey</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="tools">
+    <button class="pill-btn kbd" id="cmdBtn" type="button" aria-label="Open command palette">⌘K</button>
+    <button class="pill-btn" id="langBtn" type="button" aria-label="Switch language">عربي</button>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a class="icon-btn gh-btn" href="https://github.com/ahmedtahoun" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a class="cta-sm" href="#contact" data-i18n="nav.hire">Hire me</a>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><i></i><span data-i18n="hero.badge">Open to new roles · Egypt · relocation &amp; remote</span></div>
+  <h1 class="headline">
+    <span data-i18n="hero.h1a">I build</span>
+    <span class="rotator" aria-live="polite"><span id="rot">AI sales bots</span></span>
+    <span data-i18n="hero.h1b">that ship.</span>
+  </h1>
+  <p class="lead" data-i18n="hero.lead">Full-stack &amp; AI product engineer. 10 years in tech, from IT support for the Dubai Roads &amp; Transport Authority to shipping web apps, iOS/Android apps and CRMs end to end, with LLMs wired into real business workflows.</p>
+
+  <div class="ask" id="ask">
+    <div class="ask-head">
+      <span class="ask-dot"></span>
+      <span data-i18n="ask.title">Ask my AI anything about me</span>
+      <span class="ask-meta" data-i18n="ask.meta">runs in your browser · 0 API calls</span>
+    </div>
+    <form class="ask-bar" id="askForm" autocomplete="off">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg>
+      <input id="askInput" type="text" maxlength="200" data-i18n-ph="ask.ph" placeholder="What AI have you shipped to production?" aria-label="Ask a question">
+      <button type="submit" class="send" aria-label="Ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <div class="chips" id="askChips"></div>
+    <div class="answer" id="answer" hidden>
+      <div class="answer-q" id="answerQ"></div>
+      <div class="answer-a" id="answerA"></div>
+      <div class="answer-foot" id="answerFoot"></div>
+    </div>
+  </div>
+
+  <div class="hero-ctas">
+    <a class="cta" href="#ai" data-i18n="hero.cta1">Try my AI sales bot</a>
+    <a class="cta ghost" href="#work" data-i18n="hero.cta2">See my work</a>
+  </div>
+  <div class="socials">
+    <a href="https://github.com/ahmedtahoun" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a href="https://linkedin.com/in/ah-ta" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5z"/></svg></a>
+    <a href="mailto:ahmed.tahoun.at@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+    <a href="assets/Ahmed_Tahoun_CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg></a>
+    <span class="loc" data-i18n="hero.loc">Egypt · GMT+2 · Arabic &amp; English</span>
+  </div>
+</section>
+
+
+<!-- AI DEMO -->
+<section id="ai" class="section">
+  <div class="sec-head reveal">
+    <span class="kicker" data-i18n="ai.kicker">AI in production, not in slides</span>
+    <h2 data-i18n="ai.h2">Watch my WhatsApp AI sales assistant think</h2>
+    <p data-i18n="ai.p">The real one answers shop customers on WhatsApp, Instagram and Messenger. Pick a message, or type your own, and see every step it takes before it replies.</p>
+  </div>
+
+  <div class="demo reveal">
+    <div class="phone" aria-label="Chat demo">
+      <div class="phone-top">
+        <div class="ph-avatar">W</div>
+        <div><b>Where to Spot</b><small id="phStatus" data-i18n="demo.online">online · AI assistant</small></div>
+      </div>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <form class="chat-input" id="chatForm" autocomplete="off">
+        <input id="chatText" type="text" maxlength="160" data-i18n-ph="demo.ph" placeholder="Type a customer message…" aria-label="Customer message">
+        <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></button>
+      </form>
+    </div>
+
+    <div class="trace">
+      <div class="scenarios" id="scenarios"></div>
+      <div class="trace-card">
+        <div class="trace-title"><span data-i18n="demo.under">Under the hood</span><span class="mono small" id="traceModel">claude-haiku · cached prompt</span></div>
+        <ol class="steps" id="steps"></ol>
+        <pre class="json" id="json">{ }</pre>
+        <div class="meter">
+          <div class="meter-row"><span data-i18n="demo.spend">Spend this month</span><span class="mono" id="spend">$0.0000 / $20.00</span></div>
+          <div class="bar"><i id="spendBar"></i></div>
+          <small data-i18n="demo.cap">At the cap the AI pauses and the menu bot carries on. No surprise bills.</small>
+        </div>
+      </div>
+      <p class="note" data-i18n="demo.note">Simulated in your browser with sample shop data. It mirrors the production flow in github.com/ahmedtahoun/shopwheretospot.</p>
+    </div>
+  </div>
+
+  <div class="ai-more reveal">
+    <article class="mini">
+      <img class="mini-img" src="assets/onething.png" alt="" width="40" height="40" loading="lazy">
+      <h3 data-i18n="ai.m1h">On-device first assistant</h3>
+      <p data-i18n="ai.m1p">In OneThing, common requests are answered on the phone, even offline. Claude is called only when needed, through a Supabase Edge Function that keeps the key server-side and meters use per plan.</p>
+    </article>
+    <article class="mini">
+      <img class="mini-img sticker-sm" src="assets/kipo.png" alt="" width="44" height="44" loading="lazy">
+      <h3 data-i18n="ai.m2h">Voice &amp; receipt expense bot</h3>
+      <p data-i18n="ai.m2p">A Telegram bot that turns text, voice notes and receipt photos into categorised expenses with the Gemini API, then sends daily, weekly and monthly summaries.</p>
+    </article>
+    <article class="mini">
+      <span class="mini-tile" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/><path d="M13.5 4 10.5 20" opacity=".6"/></svg></span>
+      <h3 data-i18n="ai.m3h">AI-native engineering</h3>
+      <p data-i18n="ai.m3p">Claude Code agents and MCP tools draft a lot of the code. I own the architecture, the data model, the security rules, the reviews and the tests.</p>
+    </article>
+  </div>
+</section>
+
+<!-- KIPO -->
+<section id="kipo" class="section">
+  <div class="sec-head reveal">
+    <span class="kicker" data-i18n="k.kicker">My product · live at heykipo.com</span>
+    <h2 data-i18n="k.h2">Kipo: text what you spend, know what you keep</h2>
+    <p data-i18n="k.p">An AI expense tracker inside Telegram. People text it, say it in a voice note, or snap the receipt, in any language and currency, and their own Google Sheet fills itself. Try the parser below.</p>
+  </div>
+  <div class="kipo reveal">
+    <div class="tg-wrap">
+    <img class="kipo-sticker" src="assets/kipo.png" alt="Kipo, the orange mascot holding a receipt" width="120" height="124" loading="lazy">
+    <div class="tg">
+      <div class="tg-top"><span class="tg-av"><img src="assets/kipo.png" alt="" width="36" height="36"></span><div><b>Kipo</b><small>bot</small></div></div>
+      <div class="tg-chat" id="kChat" aria-live="polite"></div>
+      <div class="tg-chips" id="kChips"></div>
+      <form class="tg-input" id="kForm" autocomplete="off">
+        <input id="kText" type="text" maxlength="120" data-i18n-ph="k.ph" placeholder="Try: coffee 18" aria-label="Expense message">
+        <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></button>
+      </form>
+    </div>
+    </div>
+    <div class="sheet">
+      <div class="sheet-top"><span class="sheet-ico">▦</span><b data-i18n="k.sheet">My expenses · Google Sheet</b><span class="demo-tag">DEMO</span></div>
+      <div class="sheet-total"><small data-i18n="k.today">Spent today</small><b id="kTotal">0 EGP</b><span id="kIncome"></span></div>
+      <div class="sheet-cats" id="kCats"></div>
+      <table class="sheet-rows"><tbody id="kRows"></tbody></table>
+      <ul class="k-feats">
+        <li data-i18n="k.f1">🎙️ Voice notes &amp; 📸 receipts, read by Gemini</li>
+        <li data-i18n="k.f2">🗣️ Arabic in Egyptian or Gulf dialect, plus 8 more languages</li>
+        <li data-i18n="k.f3">🔁 Learns your categories · budgets · recurring · nightly summary</li>
+        <li data-i18n="k.f4">💳 Paid plans via Paymob &amp; Polar, with a 7-day free trial</li>
+      </ul>
+      <a class="cta" href="https://heykipo.com" target="_blank" rel="noopener" data-i18n="k.cta">Visit heykipo.com</a>
+    </div>
+  </div>
+  <p class="note reveal" data-i18n="k.note">This demo parser runs in your browser with sample exchange rates. The real Kipo uses Gemini with model fallback and converts at the day's rate.</p>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="sec-head reveal">
+    <span class="kicker" data-i18n="work.kicker">Selected work</span>
+    <h2 data-i18n="work.h2">Products I've built and shipped</h2>
+  </div>
+  <div class="filters reveal" id="filters" role="tablist"></div>
+  <div class="grid" id="workGrid"></div>
+</section>
+
+<!-- HOW -->
+<section class="section how reveal">
+  <div class="how-col">
+    <span class="kicker" data-i18n="how.kicker">How I work</span>
+    <h2 data-i18n="how.h2">Agents draft. I own it.</h2>
+    <p data-i18n="how.p">AI makes me fast. Engineering discipline makes it safe to ship.</p>
+  </div>
+  <div class="how-flow">
+    <div class="flow-step"><b>01</b><span data-i18n="how.s1">Talk to the people who use it</span></div>
+    <div class="flow-step"><b>02</b><span data-i18n="how.s2">Design the data model &amp; security rules</span></div>
+    <div class="flow-step ai"><b>03</b><span data-i18n="how.s3">Claude Code agents draft the code</span></div>
+    <div class="flow-step"><b>04</b><span data-i18n="how.s4">I review, test in CI, then ship</span></div>
+    <div class="flow-step"><b>05</b><span data-i18n="how.s5">Watch it in production (Sentry) &amp; iterate</span></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="section">
+  <div class="sec-head reveal">
+    <span class="kicker" data-i18n="j.kicker">Journey</span>
+    <h2 data-i18n="j.h2">From fixing systems to building them</h2>
+  </div>
+  <ol class="timeline" id="timeline"></ol>
+</section>
+
+<!-- BRANDS + STACK -->
+<section class="section reveal">
+  <div class="sec-head">
+    <span class="kicker" data-i18n="b.kicker">Brands &amp; stack</span>
+    <h2 data-i18n="b.h2">Trusted by brands across Egypt, Jordan and the Gulf</h2>
+  </div>
+  <div class="marquee" aria-label="Brands"><div class="marquee-track" id="brands"></div></div>
+  <div class="stack" id="stack"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact reveal">
+  <h2 data-i18n="c.h2">Hiring for AI, full-stack or mobile work?</h2>
+  <p data-i18n="c.p">I reply within one working day. Arabic or English.</p>
+  <div class="contact-row">
+    <a class="cta" href="mailto:ahmed.tahoun.at@gmail.com">ahmed.tahoun.at@gmail.com</a>
+    <a class="cta ghost" href="https://linkedin.com/in/ah-ta" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="cta ghost" href="https://github.com/ahmedtahoun" target="_blank" rel="noopener">GitHub</a>
+    <a class="cta ghost" href="assets/Ahmed_Tahoun_CV.pdf" download data-i18n="nav.cv">Download CV</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top"><span class="mark">AT</span><span data-i18n="name">Ahmed Tahoun</span></a>
+      <p data-i18n="foot.tag">Full-stack &amp; AI product engineer. Based in Egypt, working worldwide.</p>
+    </div>
+    <div><h4 data-i18n="foot.explore">Explore</h4><a href="#ai" data-i18n="foot.l1">AI sales-bot demo</a><a href="#kipo" data-i18n="foot.l2">Kipo demo</a><a href="#work" data-i18n="nav.work">Work</a><a href="#journey" data-i18n="nav.journey">Journey</a></div>
+    <div><h4 data-i18n="foot.connect">Connect</h4><a href="mailto:ahmed.tahoun.at@gmail.com">Email</a><a href="https://linkedin.com/in/ah-ta" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/ahmedtahoun" target="_blank" rel="noopener">GitHub</a><a href="https://heykipo.com" target="_blank" rel="noopener">heykipo.com</a></div>
+    <div><h4 data-i18n="foot.more">More</h4><a href="assets/Ahmed_Tahoun_CV.pdf" download data-i18n="nav.cv">Download CV</a><a href="llms.txt">llms.txt</a><button type="button" class="linkish" id="footCmd" data-i18n="cmd.hint">Press ⌘K anywhere</button></div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 Ahmed Tahoun</span><span data-i18n="foot">Built AI-native with Claude Code · every number comes from my CV or my code</span></div>
+</footer>
+
+<nav class="dock" aria-label="Quick navigation">
+  <a href="#top" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
+  <a href="#ai" aria-label="AI demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/></svg></a>
+  <a href="#kipo" aria-label="Kipo"><img src="assets/kipo.png" alt="" width="26" height="26"></a>
+  <a href="#work" aria-label="Work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></a>
+  <a href="#contact" aria-label="Contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+</nav>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
