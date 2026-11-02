@@ -302,11 +302,11 @@ html[dir="rtl"] .tg-input svg{transform:scaleX(-1)}
 .waves i{position:absolute;inset:0;border:2px solid rgba(255,255,255,.7);border-radius:50%;border-left-color:transparent;border-bottom-color:transparent;transform:rotate(45deg);animation:wave 2s infinite}
 .waves i:nth-child(2){inset:7px;animation-delay:.25s}.waves i:nth-child(3){inset:14px;animation-delay:.5s}
 @keyframes wave{0%,100%{opacity:.25}50%{opacity:1}}
-.m-stamps{position:absolute;inset:0;margin:auto;width:220px;height:122px;border-radius:16px;background:linear-gradient(135deg,#123d2a,#1E8A5A);color:#eafff3;padding:14px;display:grid;gap:8px;box-shadow:0 14px 30px rgba(0,0,0,.35);transform:rotate(4deg);transition:transform .4s}
+.m-stamps{position:absolute;inset:0;margin:auto;width:212px;height:max-content;border-radius:16px;background:linear-gradient(135deg,#123d2a,#1E8A5A);color:#eafff3;padding:14px;display:grid;gap:8px;box-shadow:0 14px 30px rgba(0,0,0,.35);transform:rotate(4deg);transition:transform .4s}
 .card:hover .m-stamps{transform:rotate(0) translateY(-6px)}
 .m-stamps b{font-size:13px}
-.m-stamps div{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.m-stamps i{height:24px;border-radius:50%;border:1.5px dashed rgba(234,255,243,.5);display:grid;place-items:center;font-size:12px;font-style:normal}
+.m-stamps div{display:grid;grid-template-columns:repeat(4,32px);justify-content:space-between;row-gap:8px}
+.m-stamps i{width:32px;height:32px;aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(234,255,243,.5);display:grid;place-items:center;font-size:15px;line-height:1;font-style:normal}
 .m-stamps i.on{background:rgba(255,255,255,.18);border-style:solid}
 .m-stamps small{font-family:var(--mono);font-size:11px;opacity:.85}
 
