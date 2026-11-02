@@ -19,5 +19,8 @@ python3 -m http.server 4321
 cPanel -> Git(TM) Version Control clones this repository; `.cpanel.yml` copies the site into `~/tahoun.wheretospot.com/`.
 After every push: **Manage -> Pull or Deploy -> Update from Remote**, then **Deploy HEAD Commit**.
 
+## Credits
+Tool icons in the stack section come from [Simple Icons](https://simpleicons.org) (CC0). The names and logos belong to their owners.
+
 ## License
 All rights reserved. The code is public to read, not to reuse: see [LICENSE](LICENSE).

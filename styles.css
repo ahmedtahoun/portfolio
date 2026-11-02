@@ -340,7 +340,10 @@ html[dir="rtl"] .tg-input svg{transform:scaleX(-1)}
 html[dir="rtl"] .marquee-track{animation-name:scrollr}
 @keyframes scrollr{to{transform:translateX(50%)}}
 .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.stack span{padding:7px 14px;border-radius:12px;background:var(--card);border:1px solid var(--card-b);font-size:14px;font-weight:500}
+.stack span{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:12px;background:var(--card);border:1px solid var(--card-b);font-size:14px;font-weight:500;color:var(--muted);transition:color .2s,border-color .2s}
+.stack span svg{width:16px;height:16px;flex:none;fill:currentColor;opacity:.9}
+.stack span:hover{color:var(--a2);border-color:var(--tint-b)}
+.stack span.ai{color:var(--ink)}
 .stack span.ai{border-color:var(--tint-b)}
 
 /* CONTACT */
@@ -381,6 +384,9 @@ html[lang="ar"] .foot h4{letter-spacing:0;font-family:var(--font)}
   .dock img{width:28px;height:28px;object-fit:contain}
   .kipo-sticker{width:86px;top:-34px;inset-inline-end:-6px}
   .loc{width:100%;text-align:center;margin:4px 0 0}
+  .stack{gap:6px}
+  .stack span{padding:5px 10px;font-size:12.5px;gap:6px;border-radius:10px}
+  .stack span svg{width:13px;height:13px}
   .grid{grid-template-columns:1fr}
   .scenarios{grid-template-columns:1fr}
   .cat{grid-template-columns:120px 1fr auto}

@@ -409,7 +409,8 @@
   function renderBrands() {
     const row = S.brands.map(b => `<span>${esc(b)}</span>`).join("");
     $("#brands").innerHTML = row + row;
-    $("#stack").innerHTML = S.stack.map(s => `<span class="${S.aiStack.includes(s) ? "ai" : ""}">${esc(s)}</span>`).join("");
+    const icon = n => { const slug = S.stackIcons[n]; return slug ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${S.iconPaths[slug]}"/></svg>` : ""; };
+    $("#stack").innerHTML = S.stack.map(n => `<span class="${S.aiStack.includes(n) ? "ai" : ""}">${icon(n)}${esc(n)}</span>`).join("");
   }
 
   /* ---------- reveal + counters ---------- */
