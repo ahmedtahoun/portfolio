@@ -18,3 +18,6 @@ python3 -m http.server 4321
 ## Deploy (cPanel)
 cPanel -> Git(TM) Version Control clones this repository; `.cpanel.yml` copies the site into `~/tahoun.wheretospot.com/`.
 After every push: **Manage -> Pull or Deploy -> Update from Remote**, then **Deploy HEAD Commit**.
+
+## License
+All rights reserved. The code is public to read, not to reuse: see [LICENSE](LICENSE).

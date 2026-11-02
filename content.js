@@ -160,7 +160,7 @@ window.SITE = {
     { id: "price", t: { en: ["Price question in Arabic", "Answers from live shop data"], ar: ["سؤال عن السعر بالعربي", "يرد من بيانات المتجر"] },
       msg: "بكام البن الإثيوبي ١ كيلو؟", redacted: null, handover: false, product: "eth-1kg", reply: "البن الإثيوبي ١ كيلو بـ ٩٥٠ جنيه ☕ تحب أبعتلك لينك الطلب؟" },
     { id: "pii", t: { en: ["Customer shares a phone number", "Redacted before the AI sees it"], ar: ["العميل بيبعت رقم تليفون", "بيتشال قبل ما الذكاء الاصطناعي يشوفه"] },
-      msg: "Call me on 01012345678 about the gift box", redacted: "Call me on [phone] about the gift box", handover: false, product: "gift-box", reply: "Thanks! The gift box is 1,200 EGP with free wrapping 🎁 Want me to send the order link? Our team can also call you." },
+      msg: "Call me on 01000000000 about the gift box", redacted: "Call me on [phone] about the gift box", handover: false, product: "gift-box", reply: "Thanks! The gift box is 1,200 EGP with free wrapping 🎁 Want me to send the order link? Our team can also call you." },
     { id: "custom", t: { en: ["Bulk custom order", "Handed to a human"], ar: ["طلب كمية مخصصة", "بيتحوّل لإنسان"] },
       msg: "I need 500 custom printed cups for my café", redacted: null, handover: true, product: null, reply: "Great project! Custom prints and big quantities are quoted by our team. I've passed your chat to them and they'll reply here shortly." },
     { id: "en", t: { en: ["Delivery question in English", "Same bot, any language"], ar: ["سؤال عن التوصيل بالإنجليزي", "نفس البوت بأي لغة"] },
