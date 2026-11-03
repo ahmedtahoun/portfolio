@@ -32,4 +32,7 @@ if ($mode === 'voice') {
     [$code, $body] = http_get_json("https://api.elevenlabs.io/v1/convai/conversation/get-signed-url?agent_id=$agent", $headers);
     if ($code === 200 && !empty($body['signed_url'])) json_out(200, ['signedUrl' => $body['signed_url']]);
 }
-json_out(502, ['error' => 'upstream', 'status' => $code]);
+// Pass on ElevenLabs' short error code (e.g. invalid_api_key, missing_permissions) for setup checks; never the key.
+$detail = $body['detail'] ?? [];
+$reason = is_array($detail) ? (string) ($detail['status'] ?? $detail['code'] ?? '') : '';
+json_out(502, ['error' => 'upstream', 'status' => $code, 'reason' => preg_replace('/[^a-z0-9_]/i', '', substr($reason, 0, 40))]);
